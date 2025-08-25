@@ -179,10 +179,21 @@ class _HomeScreenState extends State<HomeScreen>
             final chat = chats[index];
             return ChatTile(
               chat: chat,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ChatScreen(chat: chat)),
-              ),
+              onTap: () {
+                final currentUserId = FirebaseAuth.instance.currentUser!.uid;
+                final receiverId = chat.participants.firstWhere(
+                  (id) => id != currentUserId,
+                  orElse: () => "",
+                
+                );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        ChatScreen(chat: chat, receiverId: receiverId),
+                  ),
+                );
+              },
             );
           },
         );
@@ -205,7 +216,6 @@ class _HomeScreenState extends State<HomeScreen>
             );
             final currentUserId = FirebaseAuth.instance.currentUser!.uid;
 
-            // TODO: هنا تختار الـ user اللي عايز تبدأ معاه chat جديد
             final otherUserId = "PUT_OTHER_USER_ID_HERE";
 
             final chatId = await chatService.createChat([
@@ -219,10 +229,12 @@ class _HomeScreenState extends State<HomeScreen>
                 builder: (context) => ChatScreen(
                   chat: Chat(
                     id: chatId,
+
                     participants: [currentUserId, otherUserId],
                     lastMessage: '',
                     lastMessageTime: DateTime.now(),
                   ),
+                  receiverId: otherUserId,
                 ),
               ),
             );

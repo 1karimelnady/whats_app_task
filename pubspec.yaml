@@ -38,6 +38,11 @@ dependencies:
   firebase_core: ^4.0.0
   firebase_auth: ^6.0.1
   cloud_firestore: ^6.0.0
+  emoji_picker_flutter: ^4.3.0
+  record: ^6.1.1
+  firebase_storage: ^13.0.0
+  image_picker: ^1.2.0
+  audioplayers: ^6.5.0
 
 dev_dependencies:
   flutter_test:
