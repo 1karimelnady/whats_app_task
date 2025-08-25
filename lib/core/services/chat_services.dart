@@ -40,7 +40,6 @@ class ChatService {
     });
   }
 
-  // Create a new chat
   Future<String> createChat(List<String> participants, bool isGroup) async {
     final docRef = await _firestore.collection('chats').add({
       'participants': participants,

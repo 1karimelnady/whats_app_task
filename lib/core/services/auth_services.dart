@@ -10,7 +10,10 @@ class AuthService {
     return _auth.authStateChanges();
   }
 
-  Future<void> signInWithPhoneNumber(String phoneNumber) async {
+  Future<void> signInWithPhoneNumber(
+    String phoneNumber, {
+    required Function(String verificationId) onCodeSent,
+  }) async {
     await _auth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) async {
@@ -19,7 +22,9 @@ class AuthService {
       verificationFailed: (FirebaseAuthException e) {
         throw e;
       },
-      codeSent: (String verificationId, int? resendToken) {},
+      codeSent: (String verificationId, int? resendToken) {
+        onCodeSent(verificationId); // ابعت verificationId للـ LoginScreen
+      },
       codeAutoRetrievalTimeout: (String verificationId) {},
     );
   }
@@ -41,6 +46,27 @@ class AuthService {
 
   Future<void> signOut() async {
     await _auth.signOut();
+  }
+
+  Future<UserCredential> signUpWithEmail(String email, String password) async {
+    final userCredential = await _auth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+
+    await _firestore.collection('users').doc(userCredential.user!.uid).set({
+      "email": email,
+      "createdAt": FieldValue.serverTimestamp(),
+    });
+
+    return userCredential;
+  }
+
+  Future<UserCredential> signInWithEmail(String email, String password) async {
+    return await _auth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
   }
 
   Stream<UserModel> getUserData(String userId) {

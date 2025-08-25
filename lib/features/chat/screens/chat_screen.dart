@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:whats_app_task/core/animations/chat_animations.dart';
@@ -44,7 +45,7 @@ class _ChatScreenState extends State<ChatScreen>
     if (message.isEmpty) return;
 
     final chatService = Provider.of<ChatService>(context, listen: false);
-    final currentUserId = 'current_user_id';
+    final currentUserId = FirebaseAuth.instance.currentUser!.uid;
 
     final newMessage = Message(
       id: '',
