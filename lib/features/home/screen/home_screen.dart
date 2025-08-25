@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   Widget _buildChatsTab() {
     final chatService = Provider.of<ChatService>(context);
-    final currentUserId = 'current_user_id'; // This should come from auth
+    final currentUserId = 'current_user_id';
 
     return StreamBuilder<List<Chat>>(
       stream: chatService.getUserChats(currentUserId),
@@ -87,19 +87,19 @@ class _HomeScreenState extends State<HomeScreen>
 
   Widget _buildFAB() {
     switch (_tabController.index) {
-      case 0: // Chats tab
+      case 0:
         return FloatingActionButton(
           onPressed: () {},
           backgroundColor: Theme.of(context).colorScheme.secondary,
           child: const Icon(Icons.chat, color: Colors.white),
         );
-      case 1: // Status tab
+      case 1:
         return FloatingActionButton(
           onPressed: () {},
           backgroundColor: Theme.of(context).colorScheme.secondary,
           child: const Icon(Icons.camera_alt, color: Colors.white),
         );
-      case 2: // Calls tab
+      case 2:
         return FloatingActionButton(
           onPressed: () {},
           backgroundColor: Theme.of(context).colorScheme.secondary,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class WhatsAppColors {
-  // Light theme colors
   static const Color lightPrimary = Color(0xFF128C7E);
   static const Color lightSecondary = Color(0xFF25D366);
   static const Color lightBackground = Color(0xFFFFFFFF);
@@ -16,7 +15,6 @@ class WhatsAppColors {
   static const Color lightMessageTime = Color(0xFF8696A0);
   static const Color lightIcon = Color(0xFF8696A0);
 
-  // Dark theme colors
   static const Color darkPrimary = Color(0xFF005C4B);
   static const Color darkSecondary = Color(0xFF00A884);
   static const Color darkBackground = Color(0xFF111B21);

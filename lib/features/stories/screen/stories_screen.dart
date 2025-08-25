@@ -54,7 +54,9 @@ class _StoriesScreenState extends State<StoriesScreen> {
         children: [
           const CircleAvatar(
             radius: 30,
-            backgroundImage: NetworkImage('https://example.com/profile.jpg'),
+            backgroundImage: NetworkImage(
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf3hbXeK8w0ezCgtk3DLsksnNnxnRTrvqc4A&s',
+            ),
           ),
           Positioned(
             bottom: 0,
@@ -186,7 +188,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen>
                 final story = widget.stories[index];
                 return story.isImage
                     ? Image.network(story.imageUrl!, fit: BoxFit.cover)
-                    : const Placeholder(); // Video player would go here
+                    : const Placeholder();
               },
             ),
             _buildProgressIndicator(),
@@ -247,7 +249,9 @@ class _StoryViewerScreenState extends State<StoryViewerScreen>
         children: [
           const CircleAvatar(
             radius: 20,
-            backgroundImage: NetworkImage('https://example.com/profile.jpg'),
+            backgroundImage: NetworkImage(
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf3hbXeK8w0ezCgtk3DLsksnNnxnRTrvqc4A&s',
+            ),
           ),
           const SizedBox(width: 12),
           const Expanded(

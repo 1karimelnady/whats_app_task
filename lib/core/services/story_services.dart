@@ -4,7 +4,6 @@ import 'package:whats_app_task/features/stories/model/story.dart';
 class StoryService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // Get all stories
   Stream<List<Story>> getAllStories() {
     return _firestore
         .collection('stories')
@@ -17,7 +16,6 @@ class StoryService {
         );
   }
 
-  // Get stories for a user
   Stream<List<Story>> getUserStories(String userId) {
     return _firestore
         .collection('stories')
@@ -31,19 +29,16 @@ class StoryService {
         );
   }
 
-  // Upload a new story
   Future<void> uploadStory(Story story) async {
     await _firestore.collection('stories').add(story.toMap());
   }
 
-  // Mark story as viewed
   Future<void> markStoryAsViewed(String storyId, String userId) async {
     await _firestore.collection('stories').doc(storyId).update({
       'viewedBy': FieldValue.arrayUnion([userId]),
     });
   }
 
-  // Delete a story
   Future<void> deleteStory(String storyId) async {
     await _firestore.collection('stories').doc(storyId).delete();
   }

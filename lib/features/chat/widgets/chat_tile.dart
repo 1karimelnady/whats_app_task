@@ -12,7 +12,9 @@ class ChatTile extends StatelessWidget {
     return ListTile(
       leading: CircleAvatar(
         radius: 28,
-        backgroundImage: NetworkImage('https://example.com/profile.jpg'),
+        backgroundImage: NetworkImage(
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf3hbXeK8w0ezCgtk3DLsksnNnxnRTrvqc4A&s',
+        ),
       ),
       title: Text(
         chat.isGroup ? 'Group Chat' : 'Contact Name',

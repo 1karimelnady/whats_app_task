@@ -34,7 +34,6 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() => _isLoading = true);
     try {
       await _authService.verifySMSCode(_verificationId, _codeController.text);
-      // Navigation to home screen will be handled by auth state listener
     } catch (e) {
       ScaffoldMessenger.of(
         context,

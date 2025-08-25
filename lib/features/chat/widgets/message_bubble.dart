@@ -9,7 +9,7 @@ class MessageBubble extends StatelessWidget {
   const MessageBubble({
     super.key,
     required this.message,
-    this.isCurrentUser = false, // This should be determined based on auth
+    this.isCurrentUser = false,
   });
 
   @override

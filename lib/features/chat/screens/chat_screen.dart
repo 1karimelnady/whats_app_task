@@ -44,7 +44,7 @@ class _ChatScreenState extends State<ChatScreen>
     if (message.isEmpty) return;
 
     final chatService = Provider.of<ChatService>(context, listen: false);
-    final currentUserId = 'current_user_id'; // This should come from auth
+    final currentUserId = 'current_user_id';
 
     final newMessage = Message(
       id: '',
@@ -59,7 +59,6 @@ class _ChatScreenState extends State<ChatScreen>
     chatService.sendMessage(newMessage);
     _messageController.clear();
 
-    // Scroll to bottom when sending a message
     _scrollController.animateTo(
       _scrollController.position.maxScrollExtent,
       duration: const Duration(milliseconds: 300),
