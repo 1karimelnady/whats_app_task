@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "728895104988",
+    "project_id": "task-2c88e",
+    "storage_bucket": "task-2c88e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728895104988:android:2ea3adb09d45f6f81d9119",
+        "android_client_info": {
+          "package_name": "com.example.whats_app_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728895104988-hflbbestdbo1e66is6vu8iha2pqdiclp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNvMVDTThm0CG4o70gRjTbsFBhvo91d08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728895104988-hflbbestdbo1e66is6vu8iha2pqdiclp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "728895104988-07kuek036d7r840aprhlc5dijpuk02gn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.authTask"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
